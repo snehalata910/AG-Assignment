@@ -86,7 +86,7 @@ const user = new function () {
             userQuery+= " AND (U.FNAME LIKE CONCAT('%', :searchStr, '%') OR U.LNAME LIKE CONCAT('%', :searchStr, '%') OR E.EMPLOYEE_CODE LIKE CONCAT('%', :searchStr, '%')) ";
         }
         if(inputJson.orderByField){
-            userQuery+= " ORDER BY :orderByField :orderByValue ";
+            userQuery+= " ORDER BY " + inputJson.orderByField + " " + inputJson.orderByValue + " ";
         }
         if(inputJson.page_size){
             let pageOffset = (inputJson.page_number - 1) * inputJson.page_size;
