@@ -3,8 +3,6 @@
 const db = require('../db');
 const employeeDbModal = require('../modal/employeeDbo').employee;
 
-// const promise = require('bluebird');
-
 const employee = new function () {
     this.insertEmployee = function (inputJson) {
         inputJson.updated_by = 1;

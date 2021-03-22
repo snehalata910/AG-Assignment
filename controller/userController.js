@@ -7,8 +7,6 @@ const bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 var config = require('../config');
 
-
-// const promise = require('bluebird');
 var salt = 10;
 const SELECT_USER_LIST = "  SELECT U.USER_ID, U.FNAME, U.LNAME, U.EMAIL, U.IS_ACTIVE, E.EMPLOYEE_CODE, E.ORGANIZATION_NAME "+
 " FROM USER U " +
@@ -38,7 +36,7 @@ const user = new function () {
                 console.log(isSame);
                 if(isSame){
                     var token = await jwt.sign({ id: data.user_id }, config.secretKey, {
-                        expiresIn: 86400 // expires in 24 hours
+                        expiresIn: 86400
                       });
                     userResult.status = 'success';
                     userResult.message = 'user data';
